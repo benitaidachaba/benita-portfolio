@@ -8,7 +8,7 @@ Built with Next.js App Router, TypeScript, Tailwind CSS, Motion and Lucide, usin
 
 **Website:** [View my current public portfolio][portfolio-url]
 
-The link currently opens my existing data-science portfolio, which also supplies the public project references used here. This Next.js version is prepared locally; a Vercel deployment has not yet succeeded. After deployment, change the single `portfolio-url` reference at the bottom to the confirmed new URL.
+This Next.js portfolio is live on Vercel in the `benitaid2004-gmailcoms-projects` team. The [earlier data-science portfolio](https://www.datascienceportfol.io/benitaid2004) remains a source for the public project references used here.
 
 ## Current status
 
@@ -84,10 +84,10 @@ The suite starts the production server itself if needed. An installed browser ca
 - `public/resume/`: generated, selectable-text PDF resume.
 - `docs/`: planning, checkpoint reports, resume verification, artwork status and deployment instructions.
 
-The Motion library uses its `framer-motion` package entry point. Next.js uses Webpack because Turbopack worker port binding is blocked in the execution environment. Build output remains static-first and ready for later Vercel preparation. The preview metadata is `noindex`; this is not access control or authorization to publish.
+The Motion library uses its `framer-motion` package entry point. Next.js uses Webpack because Turbopack worker port binding is blocked in the execution environment. Build output remains static-first. The deployed checkpoint retains `noindex` metadata.
 
-Do not add private client material to public content, assets or repository history. See `docs/CONFIDENTIALITY-REVIEW.md` before preparing professional case studies. **Do not deploy this checkpoint:** the latest instruction supersedes the earlier deployment request. [Deployment handoff](docs/DEPLOYMENT.md) is retained for a future approved release. No live Vercel URL is claimed.
+Do not add private client material to public content, assets or repository history. See `docs/CONFIDENTIALITY-REVIEW.md` before preparing professional case studies. The owner authorized production deployment on November 13, 2026. Vercel reports deployment `dpl_AeppkAGwxn2SNtcJFEqDytxiad9t` as READY, built from commit `17717f7` on `main`. [Deployment handoff](docs/DEPLOYMENT.md) contains historical notes from before this release.
 
 <!-- Change only this URL when the portfolio domain changes. -->
 
-[portfolio-url]: https://www.datascienceportfol.io/benitaid2004
+[portfolio-url]: https://benita-portfolio-nu.vercel.app
