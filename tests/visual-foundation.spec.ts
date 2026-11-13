@@ -23,6 +23,10 @@ for (const width of [320, 390, 768, 1440]) {
         .locator(".hero")
         .getByRole("link", { name: "View Resume", exact: true }),
     ).toBeVisible();
+    await page.screenshot({
+      path: testInfo.outputPath(`hero-${width}.png`),
+      fullPage: false,
+    });
     // Actual screenshots are generated only by a successful browser run.
     await page.screenshot({
       path: testInfo.outputPath(`homepage-${width}.png`),
@@ -62,38 +66,26 @@ test("menu links navigate to the section and release page scrolling", async ({
   await page.getByRole("button", { name: "Open navigation" }).click();
   await page
     .getByRole("dialog")
-    .getByRole("link", { name: "Experience" })
+    .getByRole("link", { name: "Resume", exact: true })
     .click();
-  await expect(page).toHaveURL(/#experience$/);
+  await expect(page).toHaveURL(/#resume$/);
   await expect(page.getByRole("dialog")).not.toBeVisible();
   expect(await page.evaluate(() => document.body.style.overflow)).not.toBe(
     "hidden",
   );
 });
 
-test("resume remains accessible after preview dismissal", async ({ page }) => {
+test("hero opens the complete homepage resume", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: "Dismiss resume preview" }).click();
-  await expect(
-    page.getByRole("complementary", {
-      name: "A clearer view of my experience.",
-    }),
-  ).not.toBeVisible();
   await page
     .locator(".hero")
     .getByRole("link", { name: "View Resume", exact: true })
     .click();
-  await expect(page).toHaveURL(/\/resume$/);
+  await expect(page).toHaveURL(/#resume$/);
+  await expect(page.locator("#resume .resume-document")).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "Data Analyst Resume" }),
-  ).toBeVisible();
-  await expect(
-    page.getByRole("link", { name: "Download Resume (PDF)" }),
-  ).toBeVisible();
-  await expect(page.locator("iframe")).toHaveAttribute(
-    "title",
-    "Benita Idachaba Data Analyst resume PDF",
-  );
+    page.getByRole("link", { name: "Download Resume PDF", exact: true }),
+  ).toHaveAttribute("download", "Benita_Idachaba_Data_Analyst_Resume.pdf");
 });
 
 test("keyboard skip link reaches main content", async ({ page }) => {
@@ -124,10 +116,15 @@ test("reduced motion removes scrolling and CTA movement", async ({ page }) => {
   ).toBe("none");
 });
 
-test("homepage and resume preview pass automated accessibility checks", async ({
+test("homepage and resume pass automated accessibility checks", async ({
   page,
 }) => {
-  for (const route of ["/", "/resume"]) {
+  for (const route of [
+    "/",
+    "/resume",
+    "/projects",
+    "/projects/marketing-campaign-analysis",
+  ]) {
     await page.goto(route);
     await page.addScriptTag({
       path: dependencyRequire.resolve("axe-core/axe.min.js"),

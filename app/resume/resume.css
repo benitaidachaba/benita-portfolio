@@ -330,3 +330,27 @@
     widows: 2;
   }
 }
+
+.resume-document-page ul {
+  list-style: disc;
+}
+@media print {
+  /* Keep employer/role pairs on one line instead of shrinking body text. */
+  .resume-entry h4,
+  .resume-entry .resume-entry-role {
+    display: inline;
+    margin: 0;
+  }
+  .resume-entry .resume-entry-role::before {
+    content: " | ";
+  }
+  .resume-entry {
+    margin-top: 6pt;
+  }
+  .resume-document h3 {
+    margin-top: 8pt;
+  }
+  .resume-document-page ul {
+    margin: 3pt 0 4pt;
+  }
+}

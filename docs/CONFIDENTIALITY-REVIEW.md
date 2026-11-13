@@ -2,6 +2,8 @@
 
 Status: no professional case study approved for public release. This file records a review policy and proposed topics, not confidential source material or legal authorization.
 
+Checkpoint 3.1: the owner authorizes local migration of four existing public analytics projects and explicitly prohibits deployment. This supersedes the earlier deployment request. Source text is summarized conservatively; no original project screenshots, election records, network-user records, government identities or proprietary datasets are copied. The public marketing deck was read without modification. Missing artifact links and the CPC method issue remain review items, and professional systems summaries remain separate.
+
 The owner subsequently authorized a public GitHub repository for the current portfolio source and documentation. The latest Checkpoint 3 instruction approves general resume content and explicitly requests website deployment. Detailed professional case studies remain a separate approval gate. No restricted source records, datasets or screenshots are included in this repository.
 
 ## Governing rule

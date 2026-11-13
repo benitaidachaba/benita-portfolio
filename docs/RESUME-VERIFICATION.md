@@ -1,5 +1,9 @@
 # Checkpoint 3 — resume verification
 
+**Checkpoint 3.1 update:** the homepage and `/resume` now both show the complete shared HTML resume without an embedded PDF reader. Print styles apply on either route. Biographical content/dates are unchanged, and the geospatial link now uses the exact original URL supplied by the owner. `resume:verify` compares all 60 fragments against both HTML views and the generated PDF. Browser verification and screenshots are now available; current results supersede the historical browser-blocked notes below. See [Checkpoint 3.1](CHECKPOINT-3.1.md).
+
+Direct-source follow-up: the owner later supplied the live Power BI artifact. The geospatial resume project now links directly to this dashboard; the original portfolio URL remains preserved in the project registry and detail page. Both HTML views and the downloadable PDF are regenerated from this same selection. Resume wording, role dates and project selection are unchanged.
+
 Review date: 13 November 2026. The owner approved Checkpoints 1–2 and requested resume production, commit/push and Vercel deployment. No Checkpoint 4 case studies were created.
 
 ## Implemented

@@ -1,6 +1,6 @@
 # Checkpoint implementation plan
 
-Status: Checkpoints 1–2 approved. Checkpoint 3 resume implemented; see [resume verification](RESUME-VERIFICATION.md) for evidence and remaining limits. The latest owner instruction also authorizes commit/push and Vercel deployment; actual access/results are tracked in [deployment handoff](DEPLOYMENT.md). Checkpoint 4 remains unauthorized. The steps below retain the original staged plan.
+Status: Checkpoints 1–3 completed. Current work is the owner's bounded Checkpoint 3.1 refinement: navy/BI branding, persistent section-aware navigation, homepage HTML resume, scroll-responsive glass and four existing public project migrations. See [Checkpoint 3.1](CHECKPOINT-3.1.md). Deployment is explicitly prohibited, superseding the prior request. Additional Checkpoint 4 case studies remain unauthorized. The steps below retain the original staged plan.
 
 ## Checkpoint 1 — audit and planning
 

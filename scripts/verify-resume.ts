@@ -18,20 +18,25 @@ async function main() {
     encoding: "utf8",
   });
   const text = normalize(rawText);
-  const html = readFileSync(".next/server/app/resume.html", "utf8");
-  const article = html.match(
-    /<article\b[^>]*class="resume-document"[\s\S]*?<\/article>/,
-  )?.[0];
-  assert(article, "Rendered HTML resume article is missing");
-  const htmlText = normalize(
-    article
-      .replace(/<[^>]+>/g, " ")
-      .replace(/&amp;/g, "&")
-      .replace(/&#x27;|&#39;/g, "'")
-      .replace(/&quot;/g, '"')
-      .replace(/&lt;/g, "<")
-      .replace(/&gt;/g, ">"),
-  );
+  const htmlTexts = [
+    ".next/server/app/resume.html",
+    ".next/server/app/index.html",
+  ].map((file) => {
+    const html = readFileSync(file, "utf8");
+    const article = html.match(
+      /<article\b[^>]*class="resume-document"[\s\S]*?<\/article>/,
+    )?.[0];
+    assert(article, `Rendered HTML resume missing from ${file}`);
+    return normalize(
+      article
+        .replace(/<[^>]+>/g, " ")
+        .replace(/&amp;/g, "&")
+        .replace(/&#x27;|&#39;/g, "'")
+        .replace(/&quot;/g, '"')
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">"),
+    );
+  });
   const expectedText = [
     resume.name,
     resume.title,
@@ -53,7 +58,7 @@ async function main() {
       `PDF missing source text: ${expected}`,
     );
     assert(
-      htmlText.includes(normalize(expected)),
+      htmlTexts.every((htmlText) => htmlText.includes(normalize(expected))),
       `HTML missing source text: ${expected}`,
     );
   }
@@ -139,7 +144,7 @@ async function main() {
     "Repeated PDF generation is not deterministic",
   );
   console.log(
-    `PASS: 2 A4 pages; ${expectedText.length} source text fragments match extracted PDF and rendered HTML; links and download targets present; no overflow or disputed metrics; deterministic SHA-256 ${beforeHash}.`,
+    `PASS: 2 A4 pages; ${expectedText.length} source text fragments match extracted PDF, homepage HTML and dedicated resume HTML; links and download targets present; no overflow or disputed metrics; deterministic SHA-256 ${beforeHash}.`,
   );
   console.log(
     "HTTP delivery and browser layout/accessibility checks are separate from these artifact checks.",

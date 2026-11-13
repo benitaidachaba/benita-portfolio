@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandMark } from "./brand";
 import { ArrowUpRight } from "lucide-react";
 import { profile } from "@/content/profile";
 
@@ -7,7 +8,10 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container footer-content">
         <Link href="/" className="footer-name">
-          Benita Idachaba<span>Data Analyst · Abuja, Nigeria</span>
+          <BrandMark />
+          <span className="footer-identity">
+            Benita Idachaba<span>Data Analyst · Abuja, Nigeria</span>
+          </span>
         </Link>
         <div className="footer-links">
           <Link href="/resume">Resume</Link>

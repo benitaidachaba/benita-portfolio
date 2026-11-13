@@ -1,65 +1,72 @@
-import { ArrowRight, ChartNoAxesCombined, Database } from "lucide-react";
-import { projectPreviews } from "@/content/project-previews";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { portfolioProjects } from "@/content/portfolio-projects";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-export function ProjectFoundation() {
+export function ProjectFoundation({
+  standalone = false,
+}: {
+  standalone?: boolean;
+}) {
   return (
     <section
       id="projects"
-      className="section container"
+      className="section container analytics-projects"
       aria-labelledby="projects-title"
     >
       <SectionHeading
         id="projects-title"
         number="01"
-        eyebrow="Selected work"
+        eyebrow="Featured analytics projects"
         title="The question comes first."
-        description="Analytics grounded in business context, careful data preparation and useful reporting."
+        description="Four public portfolio projects, from campaign reporting to the data structures behind analysis."
       />
       <div className="project-grid">
-        {projectPreviews.map((project, i) => (
-          <article
-            className={`project-card project-card-${i + 1}`}
-            key={project.number}
-          >
-            <div className="project-visual" aria-hidden="true">
-              <div className="project-visual-top">
-                <span>COLLECTION / {project.number}</span>
-                {i === 0 ? (
-                  <ChartNoAxesCombined size={23} strokeWidth={1.3} />
-                ) : (
-                  <Database size={23} strokeWidth={1.3} />
-                )}
-              </div>
-              <div className="workflow-illustration">
-                {project.steps.map((step, index) => (
-                  <div key={step}>
-                    <span className="workflow-number">0{index + 1}</span>
-                    <span>{step}</span>
-                    {index < 2 && <ArrowRight size={16} />}
-                  </div>
-                ))}
-              </div>
-              <span className="visual-caption">
-                ANALYTICAL APPROACH · CONCEPTUAL ILLUSTRATION
+        {portfolioProjects.map((project, index) => (
+          <article className="project-card analytics-card" key={project.id}>
+            <div className="analytics-card-top">
+              <span className="eyebrow">
+                0{index + 1} / {project.category}
               </span>
+              <ArrowUpRight size={24} strokeWidth={1.3} aria-hidden="true" />
             </div>
-            <div className="project-card-copy">
-              <p className="eyebrow">{project.label}</p>
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <span className="content-status">
-                <span aria-hidden="true" />
-                {project.status}
-              </span>
+            <h3>
+              <Link href={`/projects/${project.id}`}>
+                {project.displayTitle}
+              </Link>
+            </h3>
+            <p>{project.overview}</p>
+            <ul
+              className="project-tools"
+              aria-label={`${project.displayTitle} tools`}
+            >
+              {project.tools.map((tool) => (
+                <li key={tool}>{tool}</li>
+              ))}
+            </ul>
+            <div className="analytics-card-bottom">
+              <span className="content-status">{project.reviewLabel}</span>
+              <Link className="text-link" href={`/projects/${project.id}`}>
+                Read project
+                <ArrowUpRight size={16} aria-hidden="true" />
+                <span className="sr-only">: {project.displayTitle}</span>
+              </Link>
             </div>
           </article>
         ))}
       </div>
-      <p className="section-footnote">
-        Collection previews only. No client records, internal screenshots or
-        unverified results are displayed.
-      </p>
+      <div className="project-section-footer">
+        <p className="section-footnote">
+          Original source links are preserved. Incomplete evidence and disputed
+          methods are identified within each project.
+        </p>
+        {!standalone && (
+          <Link className="text-link" href="/projects">
+            All analytics projects
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </Link>
+        )}
+      </div>
     </section>
   );
 }

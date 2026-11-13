@@ -36,7 +36,15 @@ class Page(HTMLParser):
 
 
 build = Path(".next/server/app")
-pages = {"/": Page((build / "index.html").read_text()), "/resume": Page((build / "resume.html").read_text())}
+pages = {}
+for path in build.rglob("*.html"):
+    name = path.relative_to(build).with_suffix("").as_posix()
+    if name.startswith("_"):
+        continue
+    route = "/" if name == "index" else "/" + name
+    pages[route] = Page(path.read_text())
+assert len(pages) == 7, f"Expected homepage, resume, project index and four project routes; got {len(pages)}"
+
 for route, page in pages.items():
     assert page.h1_count == 1, (route, "Expected one h1")
     assert page.main_count == 1, (route, "Expected one main")
@@ -58,7 +66,7 @@ def luminance(color):
     return sum(value * weight for value, weight in zip(linear, (0.2126, 0.7152, 0.0722)))
 
 
-for fg, bg in [("#072D50", "#DBF2FC"), ("#072D50", "#FE5C80"), ("#35546C", "#DBF2FC"), ("#35546C", "#FFFFFF"), ("#35546C", "#C7E4F2"), ("#BDD6E5", "#072D50"), ("#FFFFFF", "#072D50")]:
+for fg, bg in [("#072D50", "#DBF2FC"), ("#072D50", "#FE5C80"), ("#35546C", "#DBF2FC"), ("#35546C", "#FFFFFF"), ("#35546C", "#C7E4F2"), ("#BDD6E5", "#072D50"), ("#FFFFFF", "#072D50"), ("#DBF2FC", "#0B3559"), ("#BDD6E5", "#0B3559")]:
     a, b = sorted((luminance(fg), luminance(bg)))
     ratio = (b + .05) / (a + .05)
     assert ratio >= 4.5, (fg, bg, ratio)

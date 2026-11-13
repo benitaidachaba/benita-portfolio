@@ -120,7 +120,14 @@ export const resume = {
       },
     ],
   },
-  projects: portfolioProjects.filter((project) => project.resumeSelected),
+  projects: portfolioProjects
+    .filter((project) => project.resumeSelected)
+    .map((project) => ({
+      ...project,
+      url:
+        project.evidence.find((link) => link.kind === "dashboard")?.url ??
+        project.url,
+    })),
   education: {
     qualification: "B.Sc. Biological Sciences",
     institution: "University of Abuja",

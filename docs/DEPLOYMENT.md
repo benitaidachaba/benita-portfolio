@@ -1,5 +1,7 @@
 # Vercel and GitHub handoff
 
+**Current Checkpoint 3.1 boundary:** do not deploy. The latest owner instruction supersedes the earlier publication request described below. No hosting or publication action is part of this revision. Retain these instructions only for a later explicitly approved release.
+
 The owner's final Checkpoint 3 instruction explicitly requests a commit, GitHub push, Vercel deployment and README URL update. This supersedes earlier instructions to keep the checkpoint local. It does not authorize detailed professional case studies or Checkpoint 4 implementation.
 
 ## Current result

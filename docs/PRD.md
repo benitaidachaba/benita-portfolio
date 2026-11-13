@@ -1,6 +1,17 @@
 # Product requirements: Benita Idachaba portfolio
 
-Status: Checkpoint 1 proposal, awaiting owner review. Audit date: 12 November 2026.
+Status: Checkpoints 1–3 completed; Checkpoint 3.1 refinements implemented for local review. Initial audit: 12 November 2026. The latest owner revision prohibits deployment and limits project migration to four existing public projects.
+
+## Current Checkpoint 3.1 requirements
+
+- Uppercase BI monogram in navigation, mobile menu, footer, favicon and brand metadata.
+- Deep navy `#072D50` dominates the site canvas, header, hero and major sections. Ice `#DBF2FC` provides contrast; pink `#FE5C80` remains limited to priority actions.
+- Sticky navigation stays visible in both scroll directions. Pathname-based route states and IntersectionObserver-based homepage states share the same active/hover styling. Section offsets account for the header.
+- Current homepage order: hero → four analytics projects → full HTML resume → professional systems/automation → capabilities → contact/footer. Experience, teaching, education and credentials live in the shared resume instead of duplicate sections.
+- View Resume in the hero opens `/#resume`. The entire resume is readable on the homepage and `/resume`; PDF is a download, not an embedded primary reader. Both HTML views use print styling and the same structured source.
+- The existing vector glass fallback is enlarged and label-free. Motion values map scroll position to a restrained 2D rotation; reduced motion and small phones disable rotation. Do not claim a true 3D model.
+- `/projects` and four pre-rendered detail routes cover only marketing, geospatial election analysis, dimensional modeling and network analysis, in that order. Source/method gaps are visible. Additional professional case studies and category-filter expansion remain outside this checkpoint.
+- No deployment or additional case studies are authorized. This section supersedes conflicting baseline behaviors below.
 
 ## Purpose and audience
 
@@ -23,7 +34,7 @@ This checkpoint creates planning documents only. Application code, dependencies,
 | `/` | Recruiter overview | Ordered sections below; concise evidence and resume access |
 | `/projects` | Browse work | Professional Work / Independent Projects collections and category filters |
 | `/projects/[slug]` | Inspect evidence | Approved case study, contribution, workflow, analytics, quality, outcomes and public links |
-| `/resume` | Read and download | HTML resume, PDF download and desktop PDF viewer |
+| `/resume` | Read and download | Full HTML resume, printing and PDF download |
 | `/about` | Professional context | Analytics approach, education, teaching and supporting technical breadth |
 
 Include a branded 404, route error recovery, sitemap, robots configuration, favicon and Open Graph asset. Navigation: Projects, Experience (`/#experience`), About and prominent View Resume. GitHub and LinkedIn appear in the hero and footer. Page navigation must work when arriving directly on a secondary route.
@@ -51,7 +62,7 @@ No unrelated sales funnel, invented testimonials, pricing, FAQ section or additi
 - Role: Data Analyst
 - Headline: Turning complex data into clear decisions and building systems that make information work.
 - Supporting copy: Data Analyst experienced in SQL, Python, business intelligence, healthcare analytics, data quality, intelligent automation and application development.
-- Primary CTA: View Resume → `/resume`
+- Primary CTA: View Resume → `/#resume` (dedicated route retained at `/resume`)
 - Secondary CTA: Explore Projects → `/projects`
 - Additional links: supplied GitHub and LinkedIn profiles.
 - Proof line proposal: SQL · Python · Power BI · PostgreSQL. These are supplied skill claims, not endorsements or proficiency ratings.
@@ -70,9 +81,9 @@ Visitor journey: scan role and skills → inspect resume and approved project ev
 | Feature | Required behavior |
 | --- | --- |
 | Navigation | Semantic links, current-page indication, skip link, visible keyboard focus; mobile menu closes on Escape and route selection and restores focus |
-| Resume spotlight | Inline panel; first-visit preference stored locally with guarded storage access; dismissal never removes permanent resume links; no hydration flash or layout jump |
-| Resume expansion | Inline expansion using a button with `aria-expanded`; no modal needed |
-| Resume | HTML remains available without JavaScript; desktop PDF embed has a title and fallback link; mobile prioritizes HTML/open PDF/download; download returns a valid named PDF |
+| Homepage resume | Complete, always-readable HTML document directly on the homepage; no popup, miniature preview or dismissal required |
+| Resume printing | Both HTML views print the resume alone, without site navigation, artwork or other homepage sections |
+| Resume | HTML remains available without JavaScript on homepage and dedicated route; PDF is downloadable, with selectable text and consistent content; no embedded reader required |
 | Project filtering | Collection and category controls are labeled and keyboard operable; categories use multi-category membership; result count announced politely; clear/reset and empty state provided |
 | Project routing | All approved slugs pre-rendered; unknown or restricted slugs return 404; draft content never enters the public bundle or metadata |
 | External links | Only confirmed public URLs; descriptive names; new-tab links use appropriate `rel` attributes |

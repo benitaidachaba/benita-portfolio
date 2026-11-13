@@ -1,6 +1,32 @@
 # Design specification
 
-Status: approved direction implemented as a Checkpoint 2 local foundation. See [checkpoint report](CHECKPOINT-2.md) for actual validation and limitations. Inter is self-hosted; Geist is the current geometric heading alternative. Original raster generation failed, so a visibly labeled temporary SVG glass study occupies the artwork area.
+Status: Checkpoint 3.1 local review. The current specification below supersedes the historical Checkpoint 2 baseline retained later in this file. Self-hosted Inter, Geist and Geist Mono remain unchanged.
+
+## Current navy-first system
+
+| Token | Value | Role |
+| --- | --- | --- |
+| `--site-canvas` | `#072D50` | Dominant canvas, hero, header, footer |
+| `--site-surface` | `#0B3559` | Supporting navy cards and systems section |
+| `--site-text` | `#DBF2FC` | Main text on navy |
+| `--site-muted` | `#BDD6E5` | Readable secondary text on navy |
+| `--site-border` | `#53748E` | Decorative outlines; focus uses stronger ice/navy contrast |
+| Existing `--action` | `#FE5C80` | Resume and contact actions; navy text |
+| Existing paper tokens | White / navy | Resume document and print output |
+
+The capabilities section uses ice blue for contrast. Ordinary badges, source-review states and hover states use navy/ice, never unrelated green or decorative pink. The document stays white and readable inside the navy page frame. Font sizes and spacing retain the established scale.
+
+Branding: a shared `BrandMark` renders exactly `BI`, with deliberate letter spacing and a 44px interaction area. The favicon uses uppercase paths. Application, title and Open Graph metadata use uppercase BI branding.
+
+Navigation: a sticky top-level header, never hidden by scroll direction. The current route/section has an ice fill and navy text, matching hover. IntersectionObserver watches a band below the header; it changes state only when the section changes. Observer margins use pixel dimensions to avoid percentage-width ambiguities. Resizing reinitializes observation through requestAnimationFrame. Native mobile dialog includes explicit Tab/Shift+Tab containment, Escape dismissal and trigger-focus restoration. The skip link sits above the header.
+
+Layout order: hero, featured analytics, complete HTML resume, professional systems, capabilities, contact/footer. Shared resume sections replace duplicate employment/teaching/education presentations. The same document renders on `/resume` without a PDF viewer. Print rules isolate the resume on either route.
+
+Artwork: the existing SVG fallback is a large background layer with pointer events disabled, no caption or text overlays, and no layout participation on desktop. A fixed-height region contains it on smaller screens. `useScroll`/`useTransform` map 0–1000px scroll to −12°…38°, with a short spring interpolation; there is no continuous spin or React scroll-state loop. This is **2D rotation of a vector illustration**, not a true 3D asset. At widths ≤599px and under reduced motion, transforms are disabled. Fallback status is documented in `ARTWORK.md` rather than displayed over the art.
+
+Contrast was checked both numerically and with browser accessibility tests; actual results and screenshots are in `CHECKPOINT-3.1.md`. Existing editorial typography, whitespace, responsive structure, focus treatment and token architecture remain in use through a separate `app/refinements.css` layer.
+
+## Historical Checkpoint 2 baseline
 
 ## Direction: an editorial analytics portfolio
 

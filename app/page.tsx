@@ -1,73 +1,38 @@
-import {
-  ArrowUpRight,
-  Braces,
-  GraduationCap,
-  Layers3,
-  ScanText,
-} from "lucide-react";
+import { ArrowUpRight, Braces, Layers3, ScanText } from "lucide-react";
 import { Hero } from "@/components/hero/hero";
 import { ResumeSpotlight } from "@/components/resume/resume-spotlight";
 import { ProjectFoundation } from "@/components/projects/project-foundation";
-import { ExperienceSection } from "@/components/experience/experience-section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { capabilities } from "@/content/skills";
 import { profile } from "@/content/profile";
-import { resume } from "@/content/resume";
+import { projectPreviews } from "@/content/project-previews";
 
 export default function Home() {
+  const professional = projectPreviews[0];
   return (
-    <main id="main" tabIndex={-1}>
+    <main id="main" tabIndex={-1} className="homepage">
       <Hero />
-      <div className="container">
-        <ResumeSpotlight />
-      </div>
       <ProjectFoundation />
-      <section id="capabilities" className="section capabilities-section">
-        <div className="container">
-          <SectionHeading
-            number="02"
-            eyebrow="Technical capabilities"
-            title="Analytical at the core."
-            description="A practical toolkit for understanding data, communicating findings and building the workflows around them."
-          />
-          <div className="capabilities-grid">
-            {capabilities.map((group) => (
-              <article className="capability" key={group.number}>
-                <span className="capability-number">/{group.number}</span>
-                <h3>{group.title}</h3>
-                <p>{group.description}</p>
-                <ul>
-                  {group.skills.map((skill) => (
-                    <li key={skill}>{skill}</li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-          <p className="section-footnote">
-            Skills reflect practical experience across roles. Power BI DAX is an
-            area of continued development.
-          </p>
-        </div>
-      </section>
-      <ExperienceSection />
-      <section className="systems-section">
+      <ResumeSpotlight />
+      <section id="systems" className="systems-section">
         <div className="container systems-grid">
           <div>
-            <p className="eyebrow">04 / Beyond the dashboard</p>
+            <p className="eyebrow">03 / Systems & automation</p>
             <h2>
               Making information
               <br />
               work together.
             </h2>
             <p>
-              Reporting is one part of the picture. My supporting experience
-              spans intelligent document processing, workflow automation and
-              application development.
+              My application-development work includes analytics and reporting
+              components alongside document processing, operational workflows
+              and automation.
             </p>
-            <span className="systems-note">
-              Systems case studies follow publication review.
-            </span>
+            <article className="professional-collection">
+              <h3>{professional.title}</h3>
+              <p>{professional.description}</p>
+              <span className="systems-note">{professional.status}</span>
+            </article>
           </div>
           <div className="systems-list">
             {[
@@ -98,93 +63,62 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="section container teaching-section">
-        <SectionHeading
-          number="05"
-          eyebrow="Teaching & learning"
-          title="Knowledge is more useful shared."
-        />
-        <div className="teaching-grid">
-          <div className="teaching-intro">
-            <GraduationCap size={32} strokeWidth={1.4} aria-hidden="true" />
-            <p>
-              SQL teaching, debugging clinics and practical analytics exercises
-              across student cohorts.
-            </p>
-            <span className="preview-note">{resume.teaching.summary}</span>
-          </div>
-          <div className="teaching-roles">
-            {resume.teaching.roles.map((role) => (
-              <div key={role.organization}>
-                <h3>{role.organization}</h3>
-                <p>{role.role}</p>
-                <p>
-                  {role.start} – {role.end}
-                </p>
-              </div>
+      <section id="capabilities" className="section capabilities-section">
+        <div className="container">
+          <SectionHeading
+            number="04"
+            eyebrow="Technical capabilities"
+            title="Analytical at the core."
+            description="Data analytics first. Engineering, automation and application development add supporting depth."
+          />
+          <div className="capabilities-grid">
+            {capabilities.map((group) => (
+              <article className="capability" key={group.number}>
+                <span className="capability-number">/{group.number}</span>
+                <h3>{group.title}</h3>
+                <p>{group.description}</p>
+                <ul>
+                  {group.skills.slice(0, 3).map((skill) => (
+                    <li key={skill}>{skill}</li>
+                  ))}
+                </ul>
+              </article>
             ))}
           </div>
-          <div className="education-block">
-            <p className="eyebrow">Education</p>
-            <h3>{resume.education.qualification}</h3>
-            <p>
-              {resume.education.institution} · {resume.education.completed}
-            </p>
-            <p className="education-note">
-              {resume.certifications.join(" · ")}
-            </p>
-          </div>
-        </div>
-      </section>
-      <section id="about" className="about-section">
-        <div className="container about-grid">
-          <p className="eyebrow">06 / A little context</p>
-          <div>
-            <h2>
-              Curious about the data.
-              <br />
-              Attentive to the details.
-            </h2>
-            <p>
-              I’m Benita, a Data Analyst based in Abuja, Nigeria. My experience
-              brings together organizational reporting, healthcare analytics,
-              data quality and the systems that help people use information.
-            </p>
-            <p>
-              My background in biological sciences informs an interest in
-              healthcare and the questions behind the numbers. Alongside
-              analysis, I teach SQL and contribute to practical applications and
-              automation workflows.
-            </p>
-          </div>
+          <p className="section-footnote">
+            The complete skills list is in my resume. Power BI DAX remains an
+            area of development.
+          </p>
         </div>
       </section>
       <section id="contact" className="section container contact-section">
         <div>
-          <p className="eyebrow">07 / Let’s connect</p>
+          <p className="eyebrow">05 / Let’s connect</p>
           <h2>
-            Have a question?
+            Clearer decisions
             <br />
-            Let’s start a conversation.
+            start with a conversation.
           </h2>
           <p>
-            For data analyst opportunities, technical conversations
-            <br className="desktop-break" /> or a closer look at my experience.
+            Based in Abuja, Nigeria. For Data Analyst opportunities,
+            <br className="desktop-break" /> reporting challenges and technical
+            conversations.
           </p>
         </div>
         <div className="contact-actions">
+          <a className="button button-primary" href={`mailto:${profile.email}`}>
+            Contact Me
+            <ArrowUpRight size={18} aria-hidden="true" />
+          </a>
           <a
+            className="text-link"
             href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="contact-link"
           >
             Connect on LinkedIn
-            <ArrowUpRight size={28} strokeWidth={1.5} aria-hidden="true" />
+            <ArrowUpRight size={18} aria-hidden="true" />
             <span className="sr-only"> (opens in a new tab)</span>
-          </a>
-          <a className="text-link" href={`mailto:${profile.email}`}>
-            Send an email <ArrowUpRight size={18} aria-hidden="true" />
           </a>
         </div>
       </section>

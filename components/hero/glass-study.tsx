@@ -1,9 +1,8 @@
 // Temporary vector study. Original raster generation failed; see docs/ARTWORK.md.
 export function GlassStudy() {
   return (
-    <figure className="glass-study">
+    <div className="glass-study">
       <div className="artwork-frame" aria-hidden="true">
-        <span className="artwork-coordinate coordinate-top">FORM / 01</span>
         <svg
           className="glass-svg"
           viewBox="0 0 560 560"
@@ -133,15 +132,7 @@ export function GlassStudy() {
             />
           </g>
         </svg>
-        <span className="artwork-coordinate coordinate-bottom">
-          CONNECTION → CLARITY
-        </span>
-        <span className="artwork-cross cross-one">+</span>
-        <span className="artwork-cross cross-two">+</span>
       </div>
-      <figcaption>
-        Temporary glass study <span>Original artwork pending</span>
-      </figcaption>
-    </figure>
+    </div>
   );
 }

@@ -3,6 +3,9 @@ import localFont from "next/font/local";
 import { Navigation } from "@/components/layout/navigation";
 import { Footer } from "@/components/layout/footer";
 import "./globals.css";
+import "./resume/resume.css";
+import "./refinements.css";
+import { resume } from "@/content/resume";
 
 const inter = localFont({
   src: [
@@ -32,11 +35,18 @@ const mono = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "Benita Idachaba | Data Analyst",
-    template: "%s | Benita Idachaba",
+    default: "BI — Benita Idachaba | Data Analyst",
+    template: "%s | BI — Benita Idachaba",
   },
   description:
     "Data Analyst in Abuja, Nigeria, with experience in SQL, Python, Power BI, healthcare analytics and workflow automation.",
+  applicationName: "BI — Benita Idachaba",
+  openGraph: {
+    title: "BI — Benita Idachaba | Data Analyst",
+    description:
+      "Data analytics, business intelligence and reporting portfolio.",
+    type: "website",
+  },
   robots: { index: false, follow: false }, // Local checkpoint preview; publication approval is separate.
 };
 
@@ -52,7 +62,7 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <Navigation />
+        <Navigation pdfUrl={resume.pdf.url} filename={resume.pdf.filename} />
         {children}
         <Footer />
       </body>
