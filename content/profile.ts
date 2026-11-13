@@ -1,8 +1,10 @@
-// Owner-supplied content. Contact email and credential evidence remain pending.
+// Owner-supplied profile; email corroborated on the supplied public portfolio.
 export const profile = {
   name: "Benita Idachaba",
   title: "Data Analyst",
   location: "Abuja, Nigeria",
+  email: "idachababenita2@gmail.com",
+  portfolio: "https://www.datascienceportfol.io/benitaid2004",
   eyebrow: "Data analyst · Data engineering · AI automation",
   headline:
     "Turning complex data into clear decisions and building systems that make information work.",

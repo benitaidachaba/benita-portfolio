@@ -1,6 +1,24 @@
 # Content inventory and evidence audit
 
-Audit date: 12 November 2026. Scope: current workspace and user-supplied master build prompt.
+Initial audit: 12 November 2026. Updated for Checkpoint 3 on 13 November 2026. The original inventory below is historical; this update supersedes its pending contact and teaching-date items.
+
+## Checkpoint 3 update
+
+Source S2: the owner's Checkpoint 3 instructions, explicitly approving role dates, resume responsibilities, education completion in January 2025, Digitally Drive Bootcamp July 2025–August 2026, Bivy Tech July 2025–September 2026 and more than 200 students across cohorts. Use these dates over older public-profile entries.
+
+Source S3: [the supplied public portfolio](https://www.datascienceportfol.io/benitaid2004), retrieved through web search on 13 November 2026; direct fetches were unavailable. It lists `idachababenita2@gmail.com`, corroborated on the [marketing project page](https://www.datascienceportfol.io/benitaid2004/projects/1). No competing contact address was found in inspected sources. No existing resume file was supplied.
+
+Source S4: the owner's local Certificates folder, supplied during Checkpoint 3. Inspected ALX Professional Foundations and Data Analytics completion certificate images. The other four files contain Claude 101 and AI Fluency: Framework & Foundations completion certificates as image/PDF pairs; these were reviewed but excluded from the focused analyst resume. No HNG certificate file is present in the supplied folder. Original certificates, certificate IDs, QR codes and authentication endpoints are not copied into the repository. The resume uses the owner's approved professional name rather than changing it to the longer name on the ALX documents.
+
+- Contact email is now used in the resume and website contact action.
+- Teaching dates and the aggregate student count are now supplied and consistent across the homepage, HTML resume and PDF. The count is not assigned to one organization.
+- Atasun's older public profile lists an ongoing role; the owner's approved July–August 2025 dates take precedence. The older 40% response-time and 95% learner-feedback claims are excluded.
+- ALX Data Analytics and Professional Foundations completion are supported by the supplied certificate images. The owner's [LinkedIn credentials section](https://ng.linkedin.com/in/benita-idachaba-24450629b) corroborates the HNG Tech Data Analyst Intern credential. These are included without adding certificate dates, IDs or verification links. The HNG certificate original and live issuer-level validation remain unavailable.
+- techiesMAtch retains its title and dates without fabricated achievement bullets. JAR remains unexpanded because its approved expansion is unknown.
+
+Public project inventory is recorded in `content/portfolio-projects.ts`: Marketing Campaign Analysis, Geospatial Election Analysis, Dimensional Modeling and Network Analysis. The resume selects the first two with concise, non-quantified summaries. No direct URLs were guessed for the other entries, and no claim of deployed dimensional-modeling infrastructure was added. The marketing source contains a questionable CPC methodology; its formulas and reported business results are not reused. Underlying code, datasets and outcomes still require Checkpoint 4 review.
+
+No project collection filters, case-study routes or detailed professional narratives were implemented in Checkpoint 3. Website deployment and GitHub publication are explicitly requested by the owner's final instruction; actual remote access and release results are recorded in `DEPLOYMENT.md`.
 
 ## Source inventory
 

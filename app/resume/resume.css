@@ -1,0 +1,332 @@
+.resume-page-heading {
+  margin-top: 48px;
+  max-width: 800px;
+}
+.resume-page-heading h1 {
+  font-size: 48px;
+  line-height: 48px;
+  margin-top: 24px;
+}
+.resume-page-heading > p:not(.eyebrow) {
+  margin-top: 24px;
+  color: var(--text-muted);
+  max-width: 660px;
+}
+.resume-page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  margin-top: 32px;
+}
+.resume-print-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.resume-file-note {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--text-muted);
+}
+.resume-file-note a {
+  text-decoration: underline;
+}
+.pdf-preview {
+  margin-top: 48px;
+  padding: 24px;
+  background: var(--surface-muted);
+  border-radius: var(--radius-card);
+}
+.pdf-preview-heading,
+.resume-html-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.pdf-preview-heading h2,
+.resume-html-heading h2 {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.03em;
+}
+.pdf-desktop-view iframe {
+  width: 100%;
+  height: 720px;
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 4px;
+}
+.pdf-desktop-view > p {
+  margin-top: 16px;
+}
+.pdf-mobile-fallback {
+  display: none;
+}
+.resume-html-section {
+  margin-top: 48px;
+}
+.resume-html-heading span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.resume-document {
+  background: white;
+  padding: 48px;
+  border-radius: var(--radius-card);
+  color: #202932;
+  font-size: 16px;
+  line-height: 24px;
+  overflow-wrap: anywhere;
+}
+.resume-document h2,
+.resume-document h3,
+.resume-document h4 {
+  color: #072d50;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: normal;
+}
+.resume-document h2 {
+  font-size: 30px;
+  line-height: 36px;
+}
+.resume-document h3 {
+  font-size: 18px;
+  line-height: 28px;
+  margin-block: 32px 12px;
+}
+.resume-document h4 {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+}
+.resume-document-header {
+  margin-bottom: 24px;
+}
+.resume-document-header > p {
+  margin-top: 8px;
+}
+.resume-document-role {
+  font-weight: 600;
+  color: var(--ink);
+}
+.resume-contact-links {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+.resume-contact-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.resume-document a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.resume-document-page .resume-block > p {
+  margin-top: 8px;
+}
+.resume-document-page ul {
+  margin: 8px 0 16px;
+  padding-left: 24px;
+}
+.resume-document-page li {
+  padding-left: 4px;
+  margin-top: 8px;
+}
+.resume-entry {
+  margin-top: 16px;
+  break-inside: avoid;
+}
+.resume-entry-role {
+  margin-top: 4px;
+  font-weight: 500;
+}
+.resume-entry-dates {
+  font-size: 14px;
+  line-height: 24px;
+  margin-top: 4px;
+  color: var(--text-muted);
+}
+.resume-project-link a {
+  display: inline-block;
+  min-height: 44px;
+  padding-block: 8px;
+}
+.resume-print-url {
+  display: none;
+}
+.resume-profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 32px;
+}
+@media (max-width: 767px) {
+  .pdf-desktop-view {
+    display: none;
+  }
+  .pdf-mobile-fallback {
+    display: block;
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--text-muted);
+  }
+  .resume-document {
+    padding: 24px;
+  }
+}
+@media (max-width: 599px) {
+  .resume-page-heading {
+    margin-top: 32px;
+  }
+  .resume-page-heading h1 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  .resume-page-actions {
+    align-items: flex-start;
+    gap: 12px 24px;
+  }
+  .resume-page-actions .button {
+    width: 100%;
+  }
+  .pdf-preview {
+    padding: 16px;
+    margin-top: 32px;
+  }
+  .resume-html-section {
+    margin-top: 32px;
+  }
+  .resume-document {
+    padding: 24px 16px;
+  }
+  .resume-document h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .resume-document h3 {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+@page {
+  size: A4;
+  margin: 15mm;
+}
+@media print {
+  html,
+  body {
+    background: white !important;
+    color: #202932;
+  }
+  .site-header,
+  .site-footer,
+  .skip-link,
+  .resume-page-controls,
+  .resume-page-heading,
+  .pdf-preview,
+  .resume-html-heading,
+  .resume-profile-links {
+    display: none !important;
+  }
+  .container.resume-page {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+  .resume-html-section {
+    margin: 0;
+  }
+  .resume-document {
+    border-radius: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.3;
+    color: #202932;
+  }
+  .resume-document h2,
+  .resume-document h3,
+  .resume-document h4 {
+    font-family: Arial, sans-serif;
+  }
+  .resume-document h2 {
+    font-size: 20pt;
+    line-height: 1.2;
+  }
+  .resume-document h3 {
+    font-size: 12pt;
+    line-height: 1.3;
+    margin: 12pt 0 5pt;
+    break-after: avoid;
+  }
+  .resume-document h4 {
+    font-size: 11pt;
+    line-height: 1.3;
+  }
+  .resume-document-header {
+    margin-bottom: 8pt;
+  }
+  .resume-document-header > p {
+    margin-top: 3pt;
+  }
+  .resume-contact-links {
+    display: block;
+    margin-top: 3pt;
+  }
+  .resume-contact-links li {
+    display: inline;
+    margin-right: 8pt;
+  }
+  .resume-document a {
+    color: #072d50;
+    text-decoration: none;
+  }
+  .resume-contact-links a,
+  .resume-project-link a {
+    min-height: 0;
+    padding: 0;
+  }
+  .resume-print-url {
+    display: inline;
+    font-size: 8pt;
+    overflow-wrap: anywhere;
+  }
+  .resume-entry {
+    margin-top: 8pt;
+  }
+  .resume-entry-role,
+  .resume-entry-dates {
+    margin-top: 2pt;
+    font-size: 10pt;
+    line-height: 1.3;
+  }
+  .resume-document-page .resume-block > p {
+    margin-top: 4pt;
+  }
+  .resume-document-page ul {
+    margin: 4pt 0 6pt;
+    padding-left: 12pt;
+  }
+  .resume-document-page li {
+    margin-top: 3pt;
+  }
+  .resume-document-page + .resume-document-page {
+    break-before: page;
+  }
+  .resume-document p,
+  .resume-document li {
+    orphans: 2;
+    widows: 2;
+  }
+}

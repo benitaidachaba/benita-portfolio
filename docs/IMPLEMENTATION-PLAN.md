@@ -1,6 +1,6 @@
 # Checkpoint implementation plan
 
-Status: Checkpoint 1 approved; Checkpoint 2 visual foundation implemented for local review. See [Checkpoint 2 report](CHECKPOINT-2.md) for files, commands, passed checks and blocked browser validation. Checkpoint 3 and deployment remain unauthorized. The steps below retain the original staged plan.
+Status: Checkpoints 1–2 approved. Checkpoint 3 resume implemented; see [resume verification](RESUME-VERIFICATION.md) for evidence and remaining limits. The latest owner instruction also authorizes commit/push and Vercel deployment; actual access/results are tracked in [deployment handoff](DEPLOYMENT.md). Checkpoint 4 remains unauthorized. The steps below retain the original staged plan.
 
 ## Checkpoint 1 — audit and planning
 

@@ -1,5 +1,6 @@
-import { ArrowDown, ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Download, MapPin } from "lucide-react";
 import { profile } from "@/content/profile";
+import { resume } from "@/content/resume";
 import { ActionLink } from "@/components/ui/action-link";
 import { GlassStudy } from "./glass-study";
 
@@ -24,6 +25,9 @@ export function Hero() {
             </a>
           </div>
           <div className="hero-socials">
+            <a href={resume.pdf.url} download={resume.pdf.filename}>
+              Download Resume <Download aria-hidden="true" size={14} />
+            </a>
             <a href={profile.github} target="_blank" rel="noopener noreferrer">
               GitHub
               <ArrowUpRight aria-hidden="true" size={14} />

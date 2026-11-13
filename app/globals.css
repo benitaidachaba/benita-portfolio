@@ -1445,3 +1445,67 @@ section[id] {
     transform: none !important;
   }
 }
+
+/* Resume integration extends the approved spotlight without changing the hero grid. */
+.resume-spotlight-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.resume-mini-preview {
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 20px;
+}
+.resume-mini-preview summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.resume-mini-preview summary::before {
+  content: "+";
+  margin-right: 8px;
+}
+.resume-mini-preview[open] summary::before {
+  content: "−";
+}
+.resume-mini-preview > div {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-muted);
+}
+.resume-mini-preview > div > span {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-muted);
+}
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+@media (max-width: 899px) {
+  .resume-spotlight-actions {
+    flex-direction: row;
+    gap: 24px;
+    margin-left: 88px;
+  }
+}
+@media (max-width: 599px) {
+  .resume-spotlight-actions {
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    margin-left: 0;
+  }
+  .hero-socials {
+    flex-wrap: wrap;
+    gap: 8px 24px;
+  }
+}

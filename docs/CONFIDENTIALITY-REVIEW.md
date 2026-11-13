@@ -2,7 +2,7 @@
 
 Status: no professional case study approved for public release. This file records a review policy and proposed topics, not confidential source material or legal authorization.
 
-The owner subsequently authorized a public GitHub repository for the current portfolio source and documentation. Website deployment and release of detailed professional case studies remain separate approval gates. No restricted source records, datasets or screenshots are included in this repository.
+The owner subsequently authorized a public GitHub repository for the current portfolio source and documentation. The latest Checkpoint 3 instruction approves general resume content and explicitly requests website deployment. Detailed professional case studies remain a separate approval gate. No restricted source records, datasets or screenshots are included in this repository.
 
 ## Governing rule
 

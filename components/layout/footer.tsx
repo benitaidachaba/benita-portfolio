@@ -10,7 +10,7 @@ export function Footer() {
           Benita Idachaba<span>Data Analyst · Abuja, Nigeria</span>
         </Link>
         <div className="footer-links">
-          <Link href="/resume">Resume preview</Link>
+          <Link href="/resume">Resume</Link>
           <a href={profile.github} target="_blank" rel="noopener noreferrer">
             GitHub <ArrowUpRight size={14} aria-hidden="true" />
             <span className="sr-only"> (opens in a new tab)</span>

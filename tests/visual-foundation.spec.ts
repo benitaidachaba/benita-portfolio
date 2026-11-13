@@ -20,7 +20,7 @@ for (const width of [320, 390, 768, 1440]) {
     ).toBe(true);
     await expect(
       page
-        .getByRole("main")
+        .locator(".hero")
         .getByRole("link", { name: "View Resume", exact: true }),
     ).toBeVisible();
     // Actual screenshots are generated only by a successful browser run.
@@ -80,19 +80,20 @@ test("resume remains accessible after preview dismissal", async ({ page }) => {
     }),
   ).not.toBeVisible();
   await page
-    .getByRole("main")
+    .locator(".hero")
     .getByRole("link", { name: "View Resume", exact: true })
     .click();
   await expect(page).toHaveURL(/\/resume$/);
   await expect(
-    page.getByRole("heading", { name: "Experience, at a glance." }),
+    page.getByRole("heading", { name: "Data Analyst Resume" }),
   ).toBeVisible();
   await expect(
-    page.getByText("No PDF is available at this checkpoint.", { exact: false }),
+    page.getByRole("link", { name: "Download Resume (PDF)" }),
   ).toBeVisible();
-  await expect(
-    page.locator('a[download], iframe, object[type="application/pdf"]'),
-  ).toHaveCount(0);
+  await expect(page.locator("iframe")).toHaveAttribute(
+    "title",
+    "Benita Idachaba Data Analyst resume PDF",
+  );
 });
 
 test("keyboard skip link reaches main content", async ({ page }) => {
@@ -115,7 +116,7 @@ test("reduced motion removes scrolling and CTA movement", async ({ page }) => {
     ),
   ).toBe("auto");
   const button = page
-    .getByRole("main")
+    .locator(".hero")
     .getByRole("link", { name: "View Resume", exact: true });
   await button.hover();
   expect(
@@ -128,7 +129,9 @@ test("homepage and resume preview pass automated accessibility checks", async ({
 }) => {
   for (const route of ["/", "/resume"]) {
     await page.goto(route);
-    await page.addScriptTag({ path: dependencyRequire.resolve("axe-core/axe.min.js") });
+    await page.addScriptTag({
+      path: dependencyRequire.resolve("axe-core/axe.min.js"),
+    });
     const violations = await page.evaluate(async () => {
       const axe = (
         window as unknown as {

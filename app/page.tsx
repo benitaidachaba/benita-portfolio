@@ -12,6 +12,7 @@ import { ExperienceSection } from "@/components/experience/experience-section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { capabilities } from "@/content/skills";
 import { profile } from "@/content/profile";
+import { resume } from "@/content/resume";
 
 export default function Home() {
   return (
@@ -110,27 +111,27 @@ export default function Home() {
               SQL teaching, debugging clinics and practical analytics exercises
               across student cohorts.
             </p>
-            <span className="preview-note">
-              Teaching dates and cohort totals are being confirmed.
-            </span>
+            <span className="preview-note">{resume.teaching.summary}</span>
           </div>
           <div className="teaching-roles">
-            <div>
-              <h3>Digitally Drive Bootcamp</h3>
-              <p>SQL Tutor</p>
-            </div>
-            <div>
-              <h3>Bivy Tech</h3>
-              <p>Lead Data Analysis Mentor</p>
-            </div>
+            {resume.teaching.roles.map((role) => (
+              <div key={role.organization}>
+                <h3>{role.organization}</h3>
+                <p>{role.role}</p>
+                <p>
+                  {role.start} – {role.end}
+                </p>
+              </div>
+            ))}
           </div>
           <div className="education-block">
             <p className="eyebrow">Education</p>
-            <h3>B.Sc. Biological Sciences</h3>
-            <p>University of Abuja · January 2025</p>
+            <h3>{resume.education.qualification}</h3>
+            <p>
+              {resume.education.institution} · {resume.education.completed}
+            </p>
             <p className="education-note">
-              ALX Data Analytics — completed, as supplied. Credential
-              verification is pending.
+              {resume.certifications.join(" · ")}
             </p>
           </div>
         </div>
@@ -171,16 +172,21 @@ export default function Home() {
             <br className="desktop-break" /> or a closer look at my experience.
           </p>
         </div>
-        <a
-          href={profile.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="contact-link"
-        >
-          Connect on LinkedIn
-          <ArrowUpRight size={28} strokeWidth={1.5} aria-hidden="true" />
-          <span className="sr-only"> (opens in a new tab)</span>
-        </a>
+        <div className="contact-actions">
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-link"
+          >
+            Connect on LinkedIn
+            <ArrowUpRight size={28} strokeWidth={1.5} aria-hidden="true" />
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
+          <a className="text-link" href={`mailto:${profile.email}`}>
+            Send an email <ArrowUpRight size={18} aria-hidden="true" />
+          </a>
+        </div>
       </section>
     </main>
   );

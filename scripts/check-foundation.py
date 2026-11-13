@@ -46,8 +46,8 @@ for route, page in pages.items():
         if parts.scheme or parts.netloc:
             continue
         target = parts.path or route
-        assert target in pages, (route, href, "Unimplemented destination")
-        if parts.fragment:
+        assert target in pages or (Path("public") / target.lstrip("/")).is_file(), (route, href, "Unimplemented destination")
+        if parts.fragment and target in pages:
             assert parts.fragment in pages[target].ids, (route, href, "Missing section")
     print(f"PASS {route}: one main/h1, unique IDs, ARIA references and internal links resolve")
 
